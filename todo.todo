@@ -1,0 +1,12 @@
+EA Networking Modification:
+  SpeedTest Data:
+    ☐ Use ruby/elixir script to run speed test on each gateway
+    ☐ Make cronjob
+    ☐ Submit data to influxdb
+  Grafana:
+    ☐ Install grafana
+    ☐ Setup dashboard
+    ☐ Setup admin and view user
+  Data Submission:
+    ☐ Submission must be authenticated
+
