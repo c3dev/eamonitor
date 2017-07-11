@@ -19,12 +19,24 @@ defmodule SpeedTest do
   end
 
   defp change_gateway(gateway_ip, static_ip) do
-    IO.inspect gateway_ip
-    IO.inspect System.cmd("sudo", String.split("ip route replace default via " <> gateway_ip))
+    System.cmd("sudo", String.split("ip route replace default via " <> gateway_ip))
   end
 
   defp test_and_submit_result(gateway, gateway_ip, static_ip) do
     change_gateway(gateway_ip, static_ip)
+    System.cmd(File.cwd! <> "/scripts/speedtest_cli.py", String.split("--server 603"))
+  end
+
+  defp submit_result(gateway, { speeds, 0 }) do
+    [dl, ul] =
+      speeds
+      |> String.split("\n", trim: true)
+      |> Enum.map(&String.to_float/1)
+    # Send the data to influxdb
+  end
+
+  defp submit_result(_, { errors, _ }) do
+    IO.puts "Error occured: " <> errors
   end
 
   def hello do
