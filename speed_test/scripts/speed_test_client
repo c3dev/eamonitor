@@ -20,6 +20,9 @@ changeGateway()
   local hashName=gateway_$gateway
   local gatewayIP=${!hashName}
 
+  echo -e "$hashName"
+  echo -e "$gatewayIP"
+
   echo -e "\n\n⚡✧⚡ Switching to gateway $gateway ($gatewayIP) ⚡✧⚡"
 
   if `sudo ip route replace default via $gatewayIP`; then
