@@ -1,0 +1,9 @@
+gateway:
+  FPT: 192.168.0.1
+  VNPT: 192.168.0.2
+
+gateways: FPT VNPT
+
+default_gateway: VNPT
+
+ip: 192.168.0.6
