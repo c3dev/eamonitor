@@ -4,5 +4,7 @@ gateway:
 gateways:
   - FPT
   - VNPT
-default_gateway: VNPT
+default_gateway: FPT
 ip: 192.168.0.6
+office: Hanoi
+interval: 240000
